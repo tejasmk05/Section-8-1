@@ -23,8 +23,8 @@ jobs:
       my-service:
         image: mongo
         env:
-          MONGO_USER_NAME: name
-          MONGO_PASSWORD: password
+          MONGODB_INITDB_ROOT_USERNAME: name
+          MONGODB_INITDB_ROOT_PASSWORD: password
     steps:
       - name: Get Code
         uses: actions/checkout@v3
