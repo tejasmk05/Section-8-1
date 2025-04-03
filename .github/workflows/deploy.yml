@@ -30,6 +30,3 @@ jobs:
       
       - name: Debug MongoDB DNS Resolution
         run: nslookup $MONGODB_CLUSTER_ADDRESS  # ✅ Fixed to use correct address
-      
-      - name: Debug Environment Variables
-        run: env  # ✅ Prints everything
