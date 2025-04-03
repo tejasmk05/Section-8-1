@@ -31,9 +31,12 @@ jobs:
         run: curl ifconfig.me
       - name: Debug environment variables
         run: |
-          echo "MONGODB_CONNECTION_PROTOCOL: $MONGODB_CONNECTION_PROTOCOL"
-          echo "MONGODB_CLUSTER_ADDRESS: $MONGODB_CLUSTER_ADDRESS"
-          echo "PORT: $PORT"
+          if [[ -z "$MONGODB_USERNAME" || -z "$MONGODB_PASSWORD" ]]; then
+            echo "❌ MONGODB_USERNAME or MONGODB_PASSWORD is missing!"
+            exit 1
+          else
+            echo "✅ MongoDB Secrets are set."
+          fi
       - name: Run server
         run: npm start & npx wait-on http://127.0.0.1:$PORT # requires MongoDB Atlas to accept requests from anywhere!
       - name: Run tests
