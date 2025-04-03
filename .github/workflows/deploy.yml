@@ -15,12 +15,12 @@ jobs:
       image: node:23
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: my-service
+      MONGODB_CLUSTER_ADDRESS: mongodb
       MONGODB_USERNAME: name
       MONGODB_PASSWORD: password
       PORT: 8080
     services:
-      my-service:
+      mongodb:
         image: mongo
         env:
           MONGODB_INITDB_ROOT_USERNAME: name
