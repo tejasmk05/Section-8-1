@@ -32,4 +32,4 @@ jobs:
         run: nslookup $MONGODB_CLUSTER_ADDRESS  # ✅ Fixed to use correct address
       
       - name: Debug Environment Variables
-        run: env |
+        run: env  # ✅ Prints everything
