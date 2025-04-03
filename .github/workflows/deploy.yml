@@ -30,13 +30,7 @@ jobs:
       - name: Show GitHub Actions Runner IP
         run: curl ifconfig.me
       - name: Debug environment variables
-        run: |
-          if [[ -z "$MONGODB_USERNAME" || -z "$MONGODB_PASSWORD" ]]; then
-            echo "❌ MONGODB_USERNAME or MONGODB_PASSWORD is missing!"
-            exit 1
-          else
-            echo "✅ MongoDB Secrets are set."
-          fi
+        run: npm start
       - name: Run server
         run: npm start & npx wait-on http://127.0.0.1:$PORT # requires MongoDB Atlas to accept requests from anywhere!
       - name: Run tests
